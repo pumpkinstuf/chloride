@@ -149,7 +149,6 @@ module.exports = [
             'fullscreen': './src/playground/fullscreen.jsx',
             'embed': './src/playground/embed.jsx',
             'addon-settings': './src/playground/addon-settings.jsx',
-            'credits': './src/playground/credits/credits.jsx'
         },
         output: {
             path: path.resolve(__dirname, 'build')
@@ -188,7 +187,7 @@ module.exports = [
                 chunks: ['editor'],
                 template: 'src/playground/index.ejs',
                 filename: 'editor.html',
-                title: `${APP_NAME} - Run Scratch projects faster`,
+                title: `${APP_NAME} - Run Scratch projects smoother`,
                 isEditor: true,
                 ...htmlWebpackPluginCommon
             }),
@@ -196,14 +195,14 @@ module.exports = [
                 chunks: ['player'],
                 template: 'src/playground/index.ejs',
                 filename: 'index.html',
-                title: `${APP_NAME} - Run Scratch projects faster`,
+                title: `${APP_NAME} - Run Scratch projects smoother`,
                 ...htmlWebpackPluginCommon
             }),
             new HtmlWebpackPlugin({
                 chunks: ['fullscreen'],
                 template: 'src/playground/index.ejs',
                 filename: 'fullscreen.html',
-                title: `${APP_NAME} - Run Scratch projects faster`,
+                title: `${APP_NAME} - Run Scratch projects smoother`,
                 ...htmlWebpackPluginCommon
             }),
             new HtmlWebpackPlugin({
@@ -218,14 +217,6 @@ module.exports = [
                 template: 'src/playground/simple.ejs',
                 filename: 'addons.html',
                 title: `Addon Settings - ${APP_NAME}`,
-                ...htmlWebpackPluginCommon
-            }),
-            new HtmlWebpackPlugin({
-                chunks: ['credits'],
-                template: 'src/playground/simple.ejs',
-                filename: 'credits.html',
-                title: `${APP_NAME} Credits`,
-                noSplash: true,
                 ...htmlWebpackPluginCommon
             }),
             new CopyWebpackPlugin({

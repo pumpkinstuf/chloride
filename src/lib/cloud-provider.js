@@ -226,7 +226,7 @@ class CloudProvider {
      * provider of references related to the cloud data project.
      */
     requestCloseConnection () {
-        if (this.connection &&
+        /*if (this.connection &&
             this.connection.readyState !== WebSocket.CLOSING &&
             this.connection.readyState !== WebSocket.CLOSED) {
             log.info('Request close cloud connection without reconnecting');
@@ -235,7 +235,8 @@ class CloudProvider {
             this.connection.onerror = () => {};
             this.connection.close();
         }
-        this.clear();
+        this.clear();*/
+        log.info('lol no');
     }
 
     /**

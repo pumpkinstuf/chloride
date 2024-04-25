@@ -991,15 +991,15 @@ class MenuBar extends React.Component {
                     <div className={styles.menuBarItem}>
                         <a
                             className={styles.feedbackLink}
-                            href="https://scratch.mit.edu/users/GarboMuffin/#comments"
+                            href="https://github.com/TurboWarp/mirror"
                             rel="noopener noreferrer"
                             target="_blank"
                         >
                             {/* todo: icon */}
                             <Button className={styles.feedbackButton}>
                                 <FormattedMessage
-                                    defaultMessage="{APP_NAME} Feedback"
-                                    description="Button to give feedback in the menu bar"
+                                    defaultMessage="{APP_NAME} Source"
+                                    description="Button to give sourcecode in the menu bar"
                                     id="tw.feedbackButton"
                                     values={{
                                         APP_NAME

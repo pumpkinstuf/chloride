@@ -121,9 +121,9 @@ const cloudManagerHOC = function (WrappedComponent) {
         }
         disconnectFromCloud () {
             if (this.cloudProvider) {
-                this.cloudProvider.requestCloseConnection();
+                /*this.cloudProvider.requestCloseConnection();
                 this.cloudProvider = null;
-                this.props.vm.setCloudProvider(null);
+                this.props.vm.setCloudProvider(null);*/
             }
         }
         handleCloudDataUpdate (projectHasCloudData) {

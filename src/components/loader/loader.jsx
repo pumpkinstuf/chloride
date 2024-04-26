@@ -13,8 +13,8 @@ import bottomBlock from './bottom-block.svg';
 const mainMessages = {
     'gui.loader.headline': (
         <FormattedMessage
-            defaultMessage="Loading Project"
-            description="Main loading message"
+            defaultMessage="Building Project"
+            description="Main building message"
             id="gui.loader.headline"
         />
     ),
@@ -29,12 +29,12 @@ const mainMessages = {
 
 const messages = defineMessages({
     projectData: {
-        defaultMessage: 'Loading project …',
-        description: 'Appears when loading project data, but not assets yet',
+        defaultMessage: 'Building project …',
+        description: 'Appears when building project data, but not assets yet',
         id: 'tw.loader.projectData'
     },
     downloadingAssets: {
-        defaultMessage: 'Downloading assets ({complete}/{total}) …',
+        defaultMessage: 'Fetching assets ({complete}/{total}) …',
         description: 'Appears when loading project assets from a project on a remote website',
         id: 'tw.loader.downloadingAssets'
     },

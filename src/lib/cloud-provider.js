@@ -2,8 +2,8 @@ import log from './log.js';
 import throttle from 'lodash.throttle';
 
 const anonymizeUsername = username => {
-    if (/^player\d{2,7}$/i.test(username)) {
-        return 'player';
+    if (/^cloride\d{2,6}$/i.test(username)) {
+        return 'cloride';
     }
     return username;
 };
@@ -100,6 +100,7 @@ class CloudProvider {
         // tw: code 4002 is "Username Error" -- do not try to reconnect
         if (e && e.code === 4002) {
             log.info('Cloud username is invalid. Not reconnecting.');
+            alert('Cloud username is invalid. Unable to reconnect. Change your username and reload Chloride.');
             this.onInvalidUsername();
             return;
         }
@@ -233,9 +234,13 @@ class CloudProvider {
             // Remove listeners, after this point we do not want to react to connection updates
             this.connection.onclose = () => {};
             this.connection.onerror = () => {};
-            this.connection.close();
         }
         this.clear();*/
+        if (this.connection &&
+            this.connection.readyState !== WebSocket.CLOSING &&
+            this.connection.readyState !== WebSocket.CLOSED) {
+                this.connection.close();
+            }
         log.info('lol no');
     }
 

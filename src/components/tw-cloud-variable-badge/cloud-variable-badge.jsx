@@ -18,6 +18,13 @@ const hosts = [
             name: '9gr',
             href: 'https://scratch.mit.edu/users/9gr/'
         }
+    },
+    {
+        name: 'Chloride',
+        cloudHost: 'wss://chloride-east.glitch.me',
+        provider: {
+            name: 'pumpkin',
+        }
     }
 ];
 

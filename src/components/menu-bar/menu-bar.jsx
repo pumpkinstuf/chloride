@@ -28,6 +28,7 @@ import TurboMode from '../../containers/turbo-mode.jsx';
 import MenuBarHOC from '../../containers/menu-bar-hoc.jsx';
 import SettingsMenu from './settings-menu.jsx';
 
+import Eruda from '../../containers/tw-eruda.jsx';
 import FramerateChanger from '../../containers/tw-framerate-changer.jsx';
 import ChangeUsername from '../../containers/tw-change-username.jsx';
 import CloudVariablesToggler from '../../containers/tw-cloud-toggler.jsx';
@@ -94,7 +95,7 @@ import fileIcon from './icon--file.svg';
 import editIcon from './icon--edit.svg';
 import addonsIcon from './addons.svg';
 import errorIcon from './tw-error.svg';
-import advancedIcon from './tw-advanced.svg';
+import advancedIcon from './advanced.svg';
 
 import ninetiesLogo from './nineties_logo.svg';
 import catLogo from './cat_logo.svg';
@@ -767,6 +768,15 @@ class MenuBar extends React.Component {
                                             )}
                                         </MenuItem>
                                     )}</FramerateChanger>
+                                    <Eruda>{(erudaInit) => (
+                                        <MenuItem onClick={erudaInit}>
+                                            <FormattedMessage
+                                                defaultMessage="Turn on DevTools"
+                                                description="Menu bar item for turning on Eruda DeveloperTools"
+                                                id="tw.menuBar.eruda"
+                                            />
+                                        </MenuItem>
+                                    )}</Eruda>
                                     <ChangeUsername>{changeUsername => (
                                         <MenuItem onClick={changeUsername}>
                                             <FormattedMessage

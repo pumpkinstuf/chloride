@@ -415,7 +415,7 @@ export const galleryLoading = {
             }}
         />
     ),
-    href: 'https://twextraapis.vercel.app/ext/',
+    href: 'https://extensions.turbowarp.org/?ref=chlor',
     extensionId: 'gallery',
     iconURL: galleryIcon,
     description: (
@@ -441,7 +441,7 @@ export const galleryMore = {
             }}
         />
     ),
-    href: 'https://twextraapis.vercel.app/ext/',
+    href: 'https://extensions.turbowarp.org/?ref=chlor',
     extensionId: 'gallery',
     iconURL: galleryIcon,
     description: (

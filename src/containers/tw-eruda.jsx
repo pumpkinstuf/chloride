@@ -9,11 +9,15 @@ class Eruda extends React.Component {
     constructor (props) {
         super(props);
         bindAll(this, [
-            'erudaInit'
+            'erudaToggle'
         ]);
     }
-    erudaInit () {
-        eruda.init();
+    erudaToggle () {
+        if (!eruda._isInit) {
+            eruda.init();
+        } else {
+            eruda.destroy();
+        }
     }
     render () {
         const {
@@ -23,21 +27,20 @@ class Eruda extends React.Component {
             /* eslint-enable no-unused-vars */
             ...props
         } = this.props;
-        return this.props.children(this.erudaInit, props);
+        return this.props.children(this.erudaToggle, props);
     }
 }
 
 Eruda.propTypes = {
     children: PropTypes.func,
-    turboMode: PropTypes.bool,
     vm: PropTypes.shape({
-        erudaInit: PropTypes.func
+        erudaToggle: PropTypes.func
     })
 };
 
 const mapStateToProps = state => ({
     vm: state.scratchGui.vm,
-    erudaInit: state.scratchGui.vmStatus.eruda
+    erudaToggle: state.scratchGui.vmStatus.eruda
 });
 
 export default connect(

@@ -7,9 +7,6 @@
     <meta name="description" content="<%= htmlWebpackPlugin.options.APP_NAME %> is a Scratch mod with a compiler to run projects faster, dark mode for your eyes, a bunch of addons to improve the editor, and more." />
     <title><%= htmlWebpackPlugin.options.title %></title>
     <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
-    <script>
-      //eruda.init();
-    </script>
     <link rel="apple-touch-icon" href="<%= htmlWebpackPlugin.options.root %>images/apple-touch-icon.png">
     <% if (htmlWebpackPlugin.options.root === "/" || htmlWebpackPlugin.options.root === "") { %>
       <link rel="manifest" href="<%= htmlWebpackPlugin.options.root %>manifest.webmanifest">
@@ -77,6 +74,9 @@
       .splash-reset:disabled {
         opacity: 0.8;
       }
+      .splash-loader-hint {
+        max-width: 350px;
+      }
     </style>
   </head>
   <body>
@@ -91,7 +91,7 @@
 
     <div class="splash-screen spash-waiting-for-js" hidden>
       <div class="splash-spinner"></div>
-      <div class="splash-error-title" hidden>Something went wrong. <a href="https://scratch.mit.edu/users/GarboMuffin/#comments" target="_blank" rel="noreferrer">Please report</a> with the information below.</div>
+      <div class="splash-error-title" hidden>Something went wrong. <a href="https://scratch.mit.edu/users/Pumpkinbunny/#comments" target="_blank" rel="noreferrer">Please report</a> with the information below.</div>
       <div class="splash-errors" hidden></div>
       <button class="splash-reset" hidden>Click here to reset caches (can fix some errors)</button>
     </div>
@@ -101,7 +101,8 @@
         'use strict';
 
         var theme = 'dark';
-        var accent = '#ff4c4c';
+        var accent = '#855cd6';
+        var splashcolour = "#ed9649"
 
         try {
           var themeSetting = localStorage.getItem('tw:theme');
@@ -119,6 +120,8 @@
               accent = '#855cd6';
             } else if (parsed.accent === 'blue') {
               accent = '#4c97ff';
+            } else if (parsed.accent === 'red') {
+              accent = '#ff4c4c';
             }
             if (parsed.gui === 'dark' || parsed.gui === 'light') {
               theme = parsed.gui;
@@ -136,10 +139,10 @@
         splash.setAttribute('data-theme', theme);
         if (theme !== 'dark') {
           <% if (htmlWebpackPlugin.options.isEditor) { %>
-            splash.style.backgroundColor = accent;
+            splash.style.backgroundColor = splashcolour;
             splash.style.color = 'white';
           <% } else { %>
-            splash.style.color = accent;
+            splash.style.color = splashcolour;
           <% } %>
         }
         splash.hidden = false;
@@ -147,11 +150,13 @@
         var splashErrorTitle = document.querySelector('.splash-error-title');
         var splashError = document.querySelector('.splash-errors');
         var splashReset = document.querySelector('.splash-reset');
+        var splashHint = document.querySelector('.splash-loader-hint');
 
         var totalErrors = 0;
         window.onerror = function (event, source, line, col, err) {
           if (++totalErrors > 5) return; // dont bother logging more
           splashErrorTitle.hidden = splashError.hidden = splashReset.hidden = false;
+          splashHint.hidden = true;
           var el = document.createElement('div');
           el.textContent = 'Error (splash) in ' + source + ' (' + line + ':' + col + '): ' + err;
           splashError.appendChild(el);

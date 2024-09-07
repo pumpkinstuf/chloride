@@ -2,8 +2,8 @@ import log from './log.js';
 import throttle from 'lodash.throttle';
 
 const anonymizeUsername = username => {
-    if (/^cloride\d{2,6}$/i.test(username)) {
-        return 'cloride';
+    if (/^player\d{2,6}$/i.test(username)) {
+        return 'player';
     }
     return username;
 };
@@ -239,9 +239,10 @@ class CloudProvider {
         if (this.connection &&
             this.connection.readyState !== WebSocket.CLOSING &&
             this.connection.readyState !== WebSocket.CLOSED) {
+                this.connection.onclose = () => {};
+                this.connection.onerror = () => {};
                 this.connection.close();
             }
-        log.info('lol no');
     }
 
     /**

@@ -9,6 +9,7 @@ import {getIsLoadingWithId} from '../../reducers/project-state';
 import topBlock from './top-block.svg';
 import middleBlock from './middle-block.svg';
 import bottomBlock from './bottom-block.svg';
+import {notScratchDesktop} from '../../lib/isScratchDesktop';
 
 const mainMessages = {
     'gui.loader.headline': (
@@ -146,6 +147,16 @@ class LoaderComponent extends React.Component {
                             ref={this.barInnerRef}
                         />
                     </div>
+                    {notScratchDesktop() && (
+                        <div
+                            className={styles.loaderHint}
+                        >
+                            <br/>
+                            <b>{'Tip:'}</b>{' '}
+                            {/* eslint-disable-next-line max-len */}
+                            {'Bread tastes nice'}
+                        </div>
+                    )}
                 </div>
             </div>
         );

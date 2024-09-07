@@ -9,7 +9,11 @@ import {APP_NAME} from '../../lib/brand';
 const hosts = [
     {
         name: 'US East',
-        cloudHost: 'wss://clouddata.turbowarp.org'
+        cloudHost: 'wss://clouddata.turbowarp.org',
+        provider: {
+            name: 'GarboMuffin',
+            href: 'https://scratch.mit.edu/users/GarboMuffin/'
+        }
     },
     {
         name: 'EU',
@@ -20,7 +24,7 @@ const hosts = [
         }
     },
     {
-        name: 'Chloride',
+        name: 'Chloride US South',
         cloudHost: 'wss://chloride-east.glitch.me',
         provider: {
             name: 'pumpkin',

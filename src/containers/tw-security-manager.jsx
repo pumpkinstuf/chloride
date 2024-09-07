@@ -5,6 +5,7 @@ import log from '../lib/log';
 import bindAll from 'lodash.bindall';
 import SecurityManagerModal from '../components/tw-security-manager-modal/security-manager-modal.jsx';
 import SecurityModals from '../lib/tw-security-manager-constants';
+import {getPersistedUnsandboxed, setPersistedUnsandboxed} from '../lib/tw-persisted-unsandboxed.js';
 
 /* eslint-disable require-atomic-updates */
 
@@ -24,7 +25,7 @@ const manuallyTrustExtension = url => {
  */
 const isTrustedExtension = url => (
     // Always trust our official extension repostiory.
-    url.startsWith('https://twextraapis.vercel.app/ext/') ||
+    url.startsWith('https://extensions.turbowarp.org/') ||
 
     // For development.
     url.startsWith('http://localhost:8000/') ||
@@ -93,7 +94,19 @@ const parseURL = url => {
     } catch (e) {
         return null;
     }
-    const protocols = ['http:', 'https:', 'ws:', 'wss:', 'data:', 'blob:'];
+    const protocols = [
+        // The important one we want to exclude is javascript:
+        'http:',
+        'https:',
+        'ws:',
+        'wss:',
+        'data:',
+        'blob:',
+        'mailto:',
+        'steam:',
+        "roblox-player:",
+        "calculator:"
+    ];
     if (!protocols.includes(parsed.protocol)) {
         return null;
     }
@@ -134,7 +147,6 @@ class TWSecurityManagerComponent extends React.Component {
             type: null,
             data: null,
             callback: null,
-            persistedUnsandboxed: false,
             modalCount: 0
         };
     }
@@ -241,15 +253,15 @@ class TWSecurityManagerComponent extends React.Component {
         if (url.startsWith('data:')) {
             const allowed = await showModal(SecurityModals.LoadExtension, {
                 url,
-                unsandboxed: this.state.persistedUnsandboxed,
+                unsandboxed: getPersistedUnsandboxed(),
                 onChangeUnsandboxed: this.handleChangeUnsandboxed.bind(this)
             });
-            if (this.state.data.unsandboxed) {
+            if (allowed) {
+                setPersistedUnsandboxed(this.state.data.unsandboxed);
+            }
+            if (allowed && this.state.data.unsandboxed) {
                 manuallyTrustExtension(url);
             }
-            this.setState({
-                persistedUnsandboxed: this.state.data.unsandboxed
-            });
             return allowed;
         }
         return showModal(SecurityModals.LoadExtension, {

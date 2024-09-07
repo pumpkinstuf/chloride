@@ -111,19 +111,22 @@ const cloudManagerHOC = function (WrappedComponent) {
             return this.cloudProvider && !!this.cloudProvider.connection;
         }
         connectToCloud () {
+            console.log(`Request to establish connection to clouddata server`)
             this.cloudProvider = new CloudProvider(
                 this.props.reduxCloudHost,
                 this.props.vm,
                 this.props.username,
                 this.props.projectId);
-            this.cloudProvider.onInvalidUsername = this.onInvalidUsername;
+            this.cloudProvider.onInvalidUsername = this.props.onInvalidUsername;
             this.props.vm.setCloudProvider(this.cloudProvider);
         }
         disconnectFromCloud () {
             if (this.cloudProvider) {
-                /*this.cloudProvider.requestCloseConnection();
+                console.log(`Request to disconnect from clouddata server ` + this.props.canModifyCloudData)
+                this.cloudProvider.requestCloseConnection();
                 this.cloudProvider = null;
-                this.props.vm.setCloudProvider(null);*/
+                this.props.vm.setCloudProvider(null);
+                /* renabled */
             }
         }
         handleCloudDataUpdate (projectHasCloudData) {
@@ -190,12 +193,15 @@ const cloudManagerHOC = function (WrappedComponent) {
 
     const mapStateToProps = (state, ownProps) => {
         const loadingState = state.scratchGui.projectState.loadingState;
+        //console.log(ownProps.canSave)
         return {
             reduxCloudHost: state.scratchGui.tw.cloudHost,
             isShowingWithId: getIsShowingWithId(loadingState),
             projectId: state.scratchGui.projectState.projectId,
             // if you're editing someone else's project, you can't modify cloud data
-            canModifyCloudData: (!state.scratchGui.mode.hasEverEnteredEditor || ownProps.canSave) &&
+            // but i don't think so hehe (ownProps.canSave) && !state.scratchGui.mode.hasEverEnteredEditor || 
+            // although ill keep the video sensing cuz thats creepy
+            canModifyCloudData: 
                 // possible security concern if the program attempts to encode webcam data over cloud variables
                 !(DISABLE_WITH_VIDEO_SENSING && ownProps.vm.extensionManager.isExtensionLoaded('videoSensing'))
         };

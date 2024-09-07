@@ -102,6 +102,13 @@ const Footer = () => (
                     description="Disclaimer that Chloride is not connected to Scratch"
                     id="tw.footer.disclaimer"
                 />
+                <br/>
+                <FormattedMessage
+                    // eslint-disable-next-line max-len
+                    defaultMessage="made by pumpkinstuf🥖"
+                    description="Credit for the modifications of the fork"
+                    id="tw.footer.extracredit"
+                />
             </div>
         </div>
     </footer>

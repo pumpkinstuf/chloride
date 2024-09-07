@@ -361,7 +361,7 @@ export default [
         name: (
             <FormattedMessage
                 defaultMessage="{APP_NAME} Blocks"
-                description="Name of the strange 'TurboWarp Blocks' extension"
+                description="Name of the blocks that can interact with Chloride"
                 id="tw.twExtension.name"
                 values={{
                     APP_NAME
@@ -372,8 +372,8 @@ export default [
         iconURL: twIcon,
         description: (
             <FormattedMessage
-                defaultMessage="Weird new blocks."
-                description="Description of the strange 'TurboWarp Blocks' extension"
+                defaultMessage="Funny random blocks."
+                description="Name of the blocks that can interact with Chloride"
                 id="tw.twExtension.description"
             />
         ),

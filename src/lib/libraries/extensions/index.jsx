@@ -415,7 +415,7 @@ export const galleryLoading = {
             }}
         />
     ),
-    href: 'https://extensions.turbowarp.org/',
+    href: 'https://twextensionsapi.vercel.app/ext/',
     extensionId: 'gallery',
     iconURL: galleryIcon,
     description: (
@@ -441,7 +441,7 @@ export const galleryMore = {
             }}
         />
     ),
-    href: 'https://extensions.turbowarp.org/',
+    href: 'https://twextensionsapi.vercel.app/ext/',
     extensionId: 'gallery',
     iconURL: galleryIcon,
     description: (
@@ -467,7 +467,7 @@ export const galleryError = {
             }}
         />
     ),
-    href: 'https://extensions.turbowarp.org/',
+    href: 'https://twextensionsapi.vercel.app/ext/',
     extensionId: 'gallery',
     iconURL: galleryIcon,
     description: (

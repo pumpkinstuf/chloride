@@ -19,7 +19,7 @@ const ACCENT_MAP = {
     [ACCENT_BLUE]: accentBlue,
     [ACCENT_RED]: accentRed
 };
-const ACCENT_DEFAULT = ACCENT_RED;
+const ACCENT_DEFAULT = ACCENT_PURPLE;
 
 const GUI_LIGHT = 'light';
 const GUI_DARK = 'dark';
@@ -27,7 +27,7 @@ const GUI_MAP = {
     [GUI_LIGHT]: guiLight,
     [GUI_DARK]: guiDark
 };
-const GUI_DEFAULT = GUI_LIGHT;
+const GUI_DEFAULT = GUI_DARK;
 
 const BLOCKS_THREE = 'three';
 const BLOCKS_DARK = 'dark';

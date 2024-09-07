@@ -147,7 +147,7 @@ const PromptComponent = props => (
                         values={{
                             packager: (
                                 <a
-                                    href="https://packager.turbowarp.org"
+                                    href="https://twextraapis.vercel.app/packager/index.html"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >

@@ -24,7 +24,7 @@ const manuallyTrustExtension = url => {
  */
 const isTrustedExtension = url => (
     // Always trust our official extension repostiory.
-    url.startsWith('https://twextensionsapi.vercel.app/ext/') ||
+    url.startsWith('https://twextraapis.vercel.app/ext/') ||
 
     // For development.
     url.startsWith('http://localhost:8000/') ||

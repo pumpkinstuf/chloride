@@ -86,7 +86,7 @@ const CustomExtensionModal = props => (
                         value={props.url}
                         onChange={props.onChangeURL}
                         onKeyDown={props.onKeyDown}
-                        placeholder="https://twextensionsapi.vercel.app/ext/..."
+                        placeholder="https://twextraapis.vercel.app/ext/..."
                         autoFocus
                     />
                 </React.Fragment>

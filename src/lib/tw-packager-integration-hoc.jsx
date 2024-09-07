@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import log from './log';
 import {getIsShowingProject} from '../reducers/project-state';
 
-const PACKAGER_URL = 'https://packager.turbowarp.org';
+const PACKAGER_URL = 'https://twextraapis.vercel.app/packager/index.html';
 const PACKAGER_ORIGIN = PACKAGER_URL;
 
 const PackagerIntegrationHOC = function (WrappedComponent) {
@@ -22,7 +22,7 @@ const PackagerIntegrationHOC = function (WrappedComponent) {
         }
         handleClickPackager () {
             if (this.props.canOpenPackager) {
-                window.open(`${PACKAGER_URL}/?import_from=${location.origin}`);
+                window.open(`${PACKAGER_URL}?import_from=${location.origin}`);
             }
         }
         handleMessage (e) {

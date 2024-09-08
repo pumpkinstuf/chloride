@@ -26,3 +26,6 @@ npm-*
 
 # for act
 .secrets
+.env
+icon-flat.psd
+icon.psd

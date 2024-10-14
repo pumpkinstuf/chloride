@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 import check from './check.svg';
 import dropdownCaret from './dropdown-caret.svg';
 import {MenuItem, Submenu} from '../menu/menu.jsx';
-import {ACCENT_BLUE, ACCENT_MAP, ACCENT_PURPLE, ACCENT_RED, ACCENT_RAINBOW, Theme} from '../../lib/themes/index.js';
+import {ACCENT_BLUE, ACCENT_MAP, ACCENT_PURPLE, ACCENT_RED, ACCENT_MANGO, ACCENT_RAINBOW, Theme} from '../../lib/themes/index.js';
 import {openAccentMenu, accentMenuOpen, closeSettingsMenu} from '../../reducers/menus.js';
 import {setTheme} from '../../reducers/theme.js';
 import {persistTheme} from '../../lib/themes/themePersistance.js';
@@ -24,6 +24,11 @@ const options = defineMessages({
         defaultMessage: 'Purple',
         description: 'Name of the purple color scheme. Matches modern Scratch.',
         id: 'tw.accent.purple'
+    },
+    [ACCENT_MANGO]: {
+        defaultMessage: 'Mango',
+        description: 'Name of the mango color scheme, used by Chloride.',
+        id: 'tw.accent.mango'
     },
     [ACCENT_BLUE]: {
         defaultMessage: 'Blue',
@@ -102,7 +107,7 @@ const AccentThemeMenu = ({
             <span className={styles.submenuLabel}>
                 <FormattedMessage
                     defaultMessage="Accent"
-                    description="Label for menu to choose accent color (eg. TurboWarp's red, Scratch's purple)"
+                    description="Label for menu to choose accent color (eg. Chloride's mango, Scratch's purple)"
                     id="tw.menuBar.accent"
                 />
             </span>

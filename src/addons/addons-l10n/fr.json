@@ -248,5 +248,7 @@
     "swap-local-global/edit-variable-option": "Renommer ou modifier la variable",
     "swap-local-global/to-global": "Convertir en \"Pour tous les sprites\"",
     "swap-local-global/to-local": "Convertir en \"Pour ce sprite uniquement\"",
+    "emoji-picker/show-less": "Montrer moins",
+    "emoji-picker/show-more": "Montrer plus",
     "hide-stage/hide-stage": "Cacher la scène"
 }

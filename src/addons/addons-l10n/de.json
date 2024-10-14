@@ -253,5 +253,7 @@
     "swap-local-global/edit-variable-option": "Variable bearbeiten oder umbenennen",
     "swap-local-global/to-global": "In \"Für alle Figuren\" umwandeln",
     "swap-local-global/to-local": "In \"Nur für diese Figur\" umwandeln",
+    "emoji-picker/show-less": "Weniger anzeigen",
+    "emoji-picker/show-more": "Mehr anzeigen",
     "hide-stage/hide-stage": "Bühne ausblenden"
 }

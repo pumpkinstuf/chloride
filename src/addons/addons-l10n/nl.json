@@ -244,5 +244,7 @@
     "swap-local-global/edit-variable-option": "Variabele hernoemen of bewerken",
     "swap-local-global/to-global": "Veranderen naar \"Voor alle sprites\"",
     "swap-local-global/to-local": "Veranderen naar \"Alleen voor deze sprite\"",
+    "emoji-picker/show-less": "Minder laten zien",
+    "emoji-picker/show-more": "Meer laten zien",
     "hide-stage/hide-stage": "Speelveld verbergen"
 }

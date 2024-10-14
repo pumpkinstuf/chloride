@@ -248,6 +248,14 @@ class SettingsStore extends EventTargetShim {
         const storage = this.getAddonStorage(addonId);
         const manifest = this.getAddonManifest(addonId);
         const oldValue = this.getAddonEnabled(addonId);
+
+        const required = manifest.noTouchyRequired;
+
+        if (required) {
+            console.warn(`${addonId} is required and cannot be disabled nor enabled.`)
+            return;
+        }
+
         if (enabled === null) {
             enabled = !!manifest.enabledByDefault;
             delete storage.enabled;
@@ -256,6 +264,7 @@ class SettingsStore extends EventTargetShim {
         } else {
             throw new Error('Enabled value is invalid.');
         }
+
         this.saveToLocalStorage();
         if (enabled !== oldValue) {
             // Dynamic enable is always supported.

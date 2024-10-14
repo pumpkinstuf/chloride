@@ -90,6 +90,14 @@ const UsernameModalComponent = props => (
                             id="tw.usernameModal.help2"
                         />
                     </p>
+                    <p className={styles.helpTextDanger}>
+                        <FormattedMessage
+                            // eslint-disable-next-line max-len
+                            defaultMessage="If the project is not handling your connection it may mean your using a username that is already connected to the project."
+                            description="Text in change username modal"
+                            id="tw.usernameModal.help3"
+                        />
+                    </p>
                 </React.Fragment>
             )}
             <Box className={styles.buttonRow}>

@@ -9,6 +9,7 @@ import _editor_searchable_dropdowns from "../addons/editor-searchable-dropdowns/
 import _data_category_tweaks_v2 from "../addons/data-category-tweaks-v2/_manifest_entry.js";
 import _block_palette_icons from "../addons/block-palette-icons/_manifest_entry.js";
 import _hide_flyout from "../addons/hide-flyout/_manifest_entry.js";
+import _editor_link_fix from "../addons/editor-link-fix/_manifest_entry.js";
 import _mediarecorder from "../addons/mediarecorder/_manifest_entry.js";
 import _drag_drop from "../addons/drag-drop/_manifest_entry.js";
 import _debugger from "../addons/debugger/_manifest_entry.js";
@@ -68,17 +69,23 @@ import _swap_local_global from "../addons/swap-local-global/_manifest_entry.js";
 import _editor_comment_previews from "../addons/editor-comment-previews/_manifest_entry.js";
 import _columns from "../addons/columns/_manifest_entry.js";
 import _number_pad from "../addons/number-pad/_manifest_entry.js";
+import _emoji_picker from "../addons/emoji-picker/_manifest_entry.js";
 import _editor_number_arrow_keys from "../addons/editor-number-arrow-keys/_manifest_entry.js";
 import _expanded_backpack from "../addons/expanded-backpack/_manifest_entry.js";
+import _expanding_search_bar from "../addons/expanding-search-bar/_manifest_entry.js";
 import _script_snap from "../addons/script-snap/_manifest_entry.js";
 import _fullscreen from "../addons/fullscreen/_manifest_entry.js";
 import _hide_stage from "../addons/hide-stage/_manifest_entry.js";
+import _fish_telemetry from "../addons/fish-telemetry/_manifest_entry.js";
 import _tw_straighten_comments from "../addons/tw-straighten-comments/_manifest_entry.js";
 import _tw_remove_backpack from "../addons/tw-remove-backpack/_manifest_entry.js";
-import _tw_remove_feedback from "../addons/tw-remove-feedback/_manifest_entry.js";
+import _disable_supersecretsettings from "../addons/disable-supersecretsettings/_manifest_entry.js";
 import _tw_disable_cloud_variables from "../addons/tw-disable-cloud-variables/_manifest_entry.js";
 import _tw_disable_compiler from "../addons/tw-disable-compiler/_manifest_entry.js";
 import _editor_stepping from "../addons/editor-stepping/_manifest_entry.js";
+import _usb_anarchy from "../addons/usb-anarchy/_manifest_entry.js";
+import _blockly_scroll from "../addons/blockly-scroll/_manifest_entry.js";
+import _wingdings from "../addons/wingdings/_manifest_entry.js";
 export default {
   "cat-blocks": _cat_blocks,
   "editor-devtools": _editor_devtools,
@@ -90,6 +97,7 @@ export default {
   "data-category-tweaks-v2": _data_category_tweaks_v2,
   "block-palette-icons": _block_palette_icons,
   "hide-flyout": _hide_flyout,
+  "editor-link-fix": _editor_link_fix,
   "mediarecorder": _mediarecorder,
   "drag-drop": _drag_drop,
   "debugger": _debugger,
@@ -149,15 +157,21 @@ export default {
   "editor-comment-previews": _editor_comment_previews,
   "columns": _columns,
   "number-pad": _number_pad,
+  "emoji-picker": _emoji_picker,
   "editor-number-arrow-keys": _editor_number_arrow_keys,
   "expanded-backpack": _expanded_backpack,
+  "expanding-search-bar": _expanding_search_bar,
   "script-snap": _script_snap,
   "fullscreen": _fullscreen,
   "hide-stage": _hide_stage,
+  "fish-telemetry": _fish_telemetry,
   "tw-straighten-comments": _tw_straighten_comments,
   "tw-remove-backpack": _tw_remove_backpack,
-  "tw-remove-feedback": _tw_remove_feedback,
+  "disable-supersecretsettings": _disable_supersecretsettings,
   "tw-disable-cloud-variables": _tw_disable_cloud_variables,
   "tw-disable-compiler": _tw_disable_compiler,
   "editor-stepping": _editor_stepping,
+  "usb-anarchy": _usb_anarchy,
+  "blockly-scroll": _blockly_scroll,
+  "wingdings": _wingdings,
 };

@@ -132,5 +132,7 @@
     "move-to-top-bottom/bottom": "mută în partea de jos",
     "move-to-top-bottom/top": "mută în vârf",
     "swap-local-global/edit-list-header": "Editează lista",
-    "swap-local-global/edit-variable-header": "Editează Variabila"
+    "swap-local-global/edit-variable-header": "Editează Variabila",
+    "emoji-picker/show-less": "Arată mai puțin",
+    "emoji-picker/show-more": "Arată mai mult"
 }

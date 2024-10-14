@@ -253,5 +253,7 @@
     "swap-local-global/edit-variable-option": "Változó átnevezése vagy szerkesztése",
     "swap-local-global/to-global": "Konvertálás \"Minden szereplőé\"-vé",
     "swap-local-global/to-local": "Konvertálás \"A kiválasztott szereplőé\"-vé",
+    "emoji-picker/show-less": "Mutass kevesebbet",
+    "emoji-picker/show-more": "Mutass többet",
     "hide-stage/hide-stage": "Színpad elrejtése"
 }

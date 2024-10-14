@@ -21,7 +21,7 @@ class CloudServerButton extends React.Component {
             <button
                 className={classNames(styles.server, {[styles.selected]: this.props.selected})}
                 onClick={this.handleClick}
-                title={this.props.cloudHost}
+                title={this.props.name}//{this.props.cloudHost}
             >
                 {this.props.name}
             </button>

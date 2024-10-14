@@ -11,6 +11,7 @@ const addons = [
     'data-category-tweaks-v2',
     'block-palette-icons',
     'hide-flyout',
+    'editor-link-fix',
     'mediarecorder',
     'drag-drop',
     'debugger',
@@ -70,21 +71,28 @@ const addons = [
     'editor-comment-previews',
     'columns',
     'number-pad',
+    'emoji-picker',
     'editor-number-arrow-keys',
     'expanded-backpack',
+    'expanding-search-bar',
     'script-snap',
     'fullscreen',
     'hide-stage',
+    'fish-telemetry',
     'tw-straighten-comments',
     'tw-remove-backpack',
-    'tw-remove-feedback',
+    'disable-supersecretsettings',
     'tw-disable-cloud-variables',
     'tw-disable-compiler',
-    'editor-stepping'
+    'editor-stepping',
+    'usb-anarchy',
+    'blockly-scroll',
+    'wingdings'
 ];
 
 const newAddons = [
-    'expanded-backpack'
+    'expanded-backpack',
+    'blockly-scroll'
 ];
 
 // eslint-disable-next-line import/no-commonjs

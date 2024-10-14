@@ -93,7 +93,7 @@
       <div class="splash-spinner"></div>
       <div class="splash-error-title" hidden>Something went wrong. <a href="https://scratch.mit.edu/users/Pumpkinbunny/#comments" target="_blank" rel="noreferrer">Please report</a> with the information below.</div>
       <div class="splash-errors" hidden></div>
-      <button class="splash-reset" hidden>Click here to reset caches (can fix some errors)</button>
+      <button class="splash-reset" hidden>Click here to reset caches (can fix some bugs)</button>
     </div>
 
     <script>
@@ -118,6 +118,8 @@
             var parsed = JSON.parse(themeSetting);
             if (parsed.accent === 'purple') {
               accent = '#855cd6';
+            } else if (parsed.accent === 'mango') {
+              accent = '#ffcb47';
             } else if (parsed.accent === 'blue') {
               accent = '#4c97ff';
             } else if (parsed.accent === 'red') {

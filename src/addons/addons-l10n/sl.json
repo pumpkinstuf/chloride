@@ -255,5 +255,7 @@
     "swap-local-global/edit-variable-option": "Preimenuj ali uredi spremenljivko",
     "swap-local-global/to-global": "Spremeni v \"Za vse figure\"",
     "swap-local-global/to-local": "Spremeni v \"Samo za to figuro\"",
+    "emoji-picker/show-less": "Pokaži manj",
+    "emoji-picker/show-more": "Pokaži več",
     "hide-stage/hide-stage": "Skrij oder"
 }

@@ -252,5 +252,7 @@
     "swap-local-global/edit-variable-option": "Rinomina o modifica una variabile",
     "swap-local-global/to-global": "Converti in \"Per tutti gli sprite\"",
     "swap-local-global/to-local": "Converti in \"Solo per questo sprite\"",
+    "emoji-picker/show-less": "Mostra meno",
+    "emoji-picker/show-more": "Mostra di più",
     "hide-stage/hide-stage": "Nascondi stage"
 }

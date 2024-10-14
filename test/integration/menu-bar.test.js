@@ -39,13 +39,13 @@ describe('Menu bar settings', () => {
     test('File->Load should be enabled', async () => {
         await loadUri(uri);
         await clickXpath(FILE_MENU_XPATH);
-        await findByXpath('//*[li[text()="Load from your computer"] and not(@data-tip="tooltip")]');
+        await findByXpath('//*[li[text()="Load from your device"] and not(@data-tip="tooltip")]');
     });
 
     test('File->Save should be enabled', async () => {
         await loadUri(uri);
         await clickXpath(FILE_MENU_XPATH);
-        await findByXpath('//*[li[span[text()="Save to your computer"]] and not(@data-tip="tooltip")]');
+        await findByXpath('//*[li[span[text()="Save to your device"]] and not(@data-tip="tooltip")]');
     });
 
     test('Share button should NOT be enabled', async () => {

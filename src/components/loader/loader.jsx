@@ -107,6 +107,14 @@ class LoaderComponent extends React.Component {
         this.messageEl = message;
     }
     render () {
+        const tips = [
+            "Bread tastes nice",
+            "epic loading",
+            "You should spam that super secret settings button",
+            ":D",
+            "originally looked like sodium"
+        ];
+        const tip = tips[Math.floor(Math.random()*tips.length)]
         return (
             <div
                 className={classNames(styles.background, {
@@ -154,7 +162,7 @@ class LoaderComponent extends React.Component {
                             <br/>
                             <b>{'Tip:'}</b>{' '}
                             {/* eslint-disable-next-line max-len */}
-                            {'Bread tastes nice'}
+                            {tip}
                         </div>
                     )}
                 </div>

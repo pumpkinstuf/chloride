@@ -100,15 +100,33 @@
     z-index: $z-index-menu-bar;
 }
 
-.feedback-link {
+.supersecret-link {
     color: $menu-bar-background;
     text-decoration: none;
 }
 
-.feedback-button {
+.supersecret-button {
     background-color: white;
     color: inherit;
     height: 34px;
+}
+
+@keyframes supersecret-shaking {
+    0% { transform: translateX(0) }
+    25% { transform: translateX(3px) }
+    50% { transform: translateX(-3px) }
+    75% { transform: translateX(3px) }
+    100% { transform: translateX(0) }
+}
+
+.supersecret-button {
+    background-color: white;
+    color: inherit;
+    height: 34px;
+}
+
+.supersecret-button:hover {
+    animation: supersecret-shaking 0.3s linear infinite alternate;
 }
 
 .divider {

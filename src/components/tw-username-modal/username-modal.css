@@ -63,6 +63,11 @@
     margin-bottom: 1rem;
 }
 
+.help-text-danger {
+    margin-bottom: 1rem;
+    color: rgb(255, 68, 68);
+}
+
 .must-change {
     font-weight: bold;
 }

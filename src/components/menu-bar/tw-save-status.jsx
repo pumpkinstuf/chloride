@@ -28,7 +28,7 @@ const TWSaveStatus = ({
                     {fileHandle ? (
                         <FormattedMessage
                             defaultMessage="Save as {file}"
-                            description="Menu bar item to save project to an existing file on the user's computer"
+                            description="Menu bar item to save project to an existing file on the user's device"
                             id="tw.menuBar.saveAs"
                             values={{
                                 file: fileHandle.name
@@ -36,9 +36,9 @@ const TWSaveStatus = ({
                         />
                     ) : (
                         <FormattedMessage
-                            defaultMessage="Save to your computer"
-                            description="Menu bar item for downloading a project to your computer"
-                            id="gui.menuBar.downloadToComputer"
+                            defaultMessage="Save to your device"
+                            description="Menu bar item for downloading a project to your device"
+                            id="gui.menuBar.downloadToComputer2"
                         />
                     )}
                 </div>

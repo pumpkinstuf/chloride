@@ -24,8 +24,8 @@ class FeaturedProjects extends React.Component {
         if (this.props.projectId === '0' && prevProps.projectId === null) {
             // eslint-disable-next-line react/no-did-update-set-state
             this.setState({
-                opened: true,
-                transition: false
+                opened: false,
+                transition: true
             });
         }
     }
@@ -78,7 +78,7 @@ class FeaturedProjects extends React.Component {
                     >
                         <FormattedMessage
                             defaultMessage="View studio on Scratch."
-                            description="Link to turbowarp featured projects studio"
+                            description="Link to featured projects studio"
                             id="tw.featuredProjectsStudio"
                         />
                     </a>

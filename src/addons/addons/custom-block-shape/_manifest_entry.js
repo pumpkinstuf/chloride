@@ -17,10 +17,6 @@ const manifest = {
       "link": "https://scratch.mit.edu/users/lisa_wolfgang/"
     },
     {
-      "name": "pumpkinstuf",
-      "link": "https://scratch.mit.edu/users/Pumpkinbunny/"
-    },
-    {
       "name": "GarboMuffin",
       "link": "https://scratch.mit.edu/users/GarboMuffin/"
     }

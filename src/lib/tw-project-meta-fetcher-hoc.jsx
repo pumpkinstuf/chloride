@@ -6,17 +6,24 @@ import log from './log';
 import {setProjectTitle} from '../reducers/project-title';
 import {setAuthor, setDescription} from '../reducers/tw';
 
+const trampolines = [
+    `https://trampoline.turbowarp.org`,
+    `https://trampoline.turbowarp.xyz`,
+    `https://twextraapis.vercel.app/trampoline`,
+    `https://twextraapis.vercel.app/trampo`
+];
+
+let workingtrampoline = null; // temp solution for broken apis
+
 export const fetchProjectMeta = async projectId => {
-    const urls = [
-        `https://trampoline.turbowarp.org/api/projects/${projectId}`,
-        `https://trampoline.turbowarp.xyz/api/projects/${projectId}`
-    ];
     let firstError;
-    for (const url of urls) {
+    for (const url of trampolines) {
+        //console.log(`${url}/api/projects/${projectId}`);
         try {
-            const res = await fetch(url);
+            const res = await fetch(`${url}/api/projects/${projectId}`);
             const data = await res.json();
             if (res.ok) {
+                workingtrampoline = url;
                 return data;
             }
             if (res.status === 404) {
@@ -29,7 +36,7 @@ export const fetchProjectMeta = async projectId => {
             }
         }
     }
-    throw firstError;
+    //throw firstError;
 };
 
 const getNoIndexTag = () => document.querySelector('meta[name="robots"][content="noindex"]');
@@ -70,7 +77,7 @@ const TWProjectMetaFetcherHOC = function (WrappedComponent) {
                             this.props.onSetProjectTitle(title);
                         }
                         const authorName = data.author.username;
-                        const authorThumbnail = `https://trampoline.turbowarp.org/avatars/${data.author.id}`;
+                        const authorThumbnail = `${workingtrampoline}/avatars/${data.author.id}`;
                         this.props.onSetAuthor(authorName, authorThumbnail);
                         const instructions = data.instructions || '';
                         const credits = data.description || '';

@@ -27,8 +27,11 @@ const isTrustedExtension = url => (
     // Always trust our official extension repostiory.
     url.startsWith('https://extensions.turbowarp.org/') ||
 
+    // 
+    url.startsWith('https://twextraapis.vercel.app/') ||
+
     // For development.
-    url.startsWith('http://localhost:8000/') ||
+    url.startsWith('http://localhost:8601/') ||
 
     extensionsTrustedByUser.has(url)
 );
@@ -62,6 +65,9 @@ const isAlwaysTrustedForFetching = parsed => (
     // GitHub Pages allows redirects, so not included here.
     parsed.origin === 'https://raw.githubusercontent.com' ||
     parsed.origin === 'https://api.github.com' ||
+
+    // Port Warp API
+    parsed.origin === 'https://twextraapis.vercel.app' ||
 
     // GitLab API
     // GitLab Pages allows redirects, so not included here.

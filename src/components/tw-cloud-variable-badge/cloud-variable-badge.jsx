@@ -8,7 +8,7 @@ import {APP_NAME} from '../../lib/brand';
 
 const hosts = [
     {
-        name: 'US East',
+        name: 'Tw US East',
         cloudHost: 'wss://clouddata.turbowarp.org',
         provider: {
             name: 'GarboMuffin',
@@ -16,20 +16,20 @@ const hosts = [
         }
     },
     {
-        name: 'EU',
+        name: 'Chloride US South',
+        cloudHost: 'wss://ch-south.glitch.me',
+        provider: {
+            name: 'pumpkin',
+        }
+    }
+    /*{
+        name: 'Tw EU',
         cloudHost: 'wss://clouddata-eu.turbowarp.org',
         provider: {
             name: '9gr',
             href: 'https://scratch.mit.edu/users/9gr/'
         }
-    },
-    {
-        name: 'Chloride US South',
-        cloudHost: 'wss://chloride-east.glitch.me',
-        provider: {
-            name: 'pumpkin',
-        }
-    }
+    }*/
 ];
 
 const CloudVariableBadge = props => {
@@ -77,13 +77,13 @@ const CloudVariableBadge = props => {
             {selectedHost ? (
                 <div className={styles.servers}>
                     <FormattedMessage
-                        defaultMessage="Pick a server near you:"
+                        defaultMessage="Pick a cloud server:"
                         description="Appears before a list of cloud variable servers in different countries"
                         id="tw.cloudServers"
                     />
                     {hosts.map(i => (
                         <CloudServerButton
-                            key={i.ws}
+                            key={i.cloudHost}//remove key and replace it to stop the spam
                             name={i.name}
                             cloudHost={i.cloudHost}
                             selected={props.cloudHost === i.cloudHost}
@@ -95,7 +95,7 @@ const CloudVariableBadge = props => {
                 <FormattedMessage
                     defaultMessage="Using a custom cloud variable server: {server}"
                     // eslint-disable-next-line max-len
-                    description="Appears when using a non-TurboWarp provided cloud variable server. {server} is replaced with the server's URL, eg. wss://clouddata.turbowarp.org"
+                    description="Appears when using a non-{APP_NAME} provided cloud variable server. {server} is replaced with the server's URL, eg. wss://clouddata.turbowarp.org"
                     id="tw.customCloudServer"
                     values={{
                         server: props.cloudHost

@@ -48,7 +48,7 @@ const clone = obj => JSON.parse(JSON.stringify(obj));
 const repoPath = pathUtil.resolve(__dirname, 'ScratchAddons');
 if (!process.argv.includes('-')) {
     rimraf.sync(repoPath);
-    childProcess.execSync(`git clone --depth=1 --branch=tw https://github.com/TurboWarp/addons ${repoPath}`);
+    childProcess.execSync(`git clone --depth=1 --branch=main https://github.com/pumpkinstuf/c-addons.git ${repoPath}`);
 }
 
 for (const folder of ['addons', 'addons-l10n', 'addons-l10n-settings', 'libraries']) {
@@ -178,7 +178,8 @@ const normalizeManifest = (id, manifest) => {
         'recommended',
         'theme',
         'beta',
-        'danger'
+        'danger',
+        'required'
     ];
     manifest.tags = manifest.tags.filter(i => KEEP_TAGS.includes(i));
     if (newAddons.includes(id)) {

@@ -7,6 +7,7 @@
   "scripts": {
     "build": "npm run clean && webpack --colors --bail",
     "clean": "rimraf ./build && mkdirp build && rimraf ./dist && mkdirp dist",
+    "brush": "npm run clean && npm run pulladdons && npm run start",
     "deploy": "touch build/.nojekyll && gh-pages -t -d build -m \"[skip ci] Build for $(git log --pretty=format:%H -n1)\"",
     "prepublish": "node scripts/prepublish.mjs",
     "prune": "./prune-gh-pages.sh",
@@ -18,7 +19,8 @@
     "test:lint": "eslint . --ext .js,.jsx",
     "test:unit": "jest test[\\\\/]unit[\\\\/]addons",
     "test:smoke": "jest --runInBand test[\\\\/]smoke",
-    "watch": "webpack --colors --watch"
+    "watch": "webpack --colors --watch",
+    "pulladdons": "node src/addons/pull.js"
   },
   "config": {
     "commitizen": {
@@ -91,7 +93,8 @@
     "text-encoding": "0.7.0",
     "to-style": "1.3.3",
     "wav-encoder": "1.3.0",
-    "xhr": "2.5.0"
+    "xhr": "2.5.0",
+    "yaml": "^2.5.1"
   },
   "peerDependencies": {
     "react": "^16.0.0",

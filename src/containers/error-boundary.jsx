@@ -48,6 +48,10 @@ class ErrorBoundary extends React.Component {
     }
 
     handleReload () {
+        window.location.reload();
+    }
+
+    handleReloadHsh () {
         window.location.replace(window.location.origin + window.location.pathname);
     }
 
@@ -80,6 +84,7 @@ class ErrorBoundary extends React.Component {
                 <CrashMessageComponent
                     errorMessage={this.formatErrorMessage()}
                     onReload={this.handleReload}
+                    onReloadHsh={this.handleReloadHsh}
                 />
             );
         }

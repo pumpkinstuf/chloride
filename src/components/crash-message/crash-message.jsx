@@ -57,6 +57,16 @@ const CrashMessage = props => (
                     id="gui.crashMessage.reload"
                 />
             </button>
+            <button
+                className={styles.reloadButton}
+                onClick={props.onReloadHsh}
+            >
+                <FormattedMessage
+                    defaultMessage="Clear Hashes"
+                    description="Button to clear hashes from the URL and then reload"
+                    id="gui.crashMessage.reloadhash"
+                />
+            </button>
         </Box>
     </div>
 );
@@ -64,7 +74,8 @@ const CrashMessage = props => (
 CrashMessage.propTypes = {
     eventId: PropTypes.string,
     errorMessage: PropTypes.string,
-    onReload: PropTypes.func.isRequired
+    onReload: PropTypes.func.isRequired,
+    onReloadHsh: PropTypes.func.isRequired
 };
 
 export default CrashMessage;

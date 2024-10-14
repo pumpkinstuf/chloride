@@ -54,7 +54,7 @@ const cloudManagerHOC = function (WrappedComponent) {
             // when loading a new project e.g. via file upload
             // (and eventually move it out of the vm.clear function)
 
-            if (this.shouldReconnect(this.props, prevProps)) {
+            if (document.dontcarecloud != true && this.shouldReconnect(this.props, prevProps)) {
                 this.disconnectFromCloud();
                 if (this.shouldConnect(this.props)) {
                     this.connectToCloud();
@@ -66,7 +66,8 @@ const cloudManagerHOC = function (WrappedComponent) {
                 this.connectToCloud();
             }
 
-            if (this.shouldDisconnect(this.props, prevProps)) {
+            if (document.dontcarecloud != true && this.shouldDisconnect(this.props, prevProps)) {
+                console.log("Component updated reloading connections...")
                 this.disconnectFromCloud();
             }
         }
@@ -127,6 +128,8 @@ const cloudManagerHOC = function (WrappedComponent) {
                 this.cloudProvider = null;
                 this.props.vm.setCloudProvider(null);
                 /* renabled */
+            } else {
+                console.log(`Request to disconnect from clouddata server, but invalid cloudProvider` + this.props.canModifyCloudData)
             }
         }
         handleCloudDataUpdate (projectHasCloudData) {
@@ -199,9 +202,11 @@ const cloudManagerHOC = function (WrappedComponent) {
             isShowingWithId: getIsShowingWithId(loadingState),
             projectId: state.scratchGui.projectState.projectId,
             // if you're editing someone else's project, you can't modify cloud data
+
             // but i don't think so hehe (ownProps.canSave) && !state.scratchGui.mode.hasEverEnteredEditor || 
-            // although ill keep the video sensing cuz thats creepy
+
             canModifyCloudData: 
+                (!state.scratchGui.mode.hasEverEnteredEditor || document.dontcarecloud == true) &&//UPDFUNDMENTALS
                 // possible security concern if the program attempts to encode webcam data over cloud variables
                 !(DISABLE_WITH_VIDEO_SENSING && ownProps.vm.extensionManager.isExtensionLoaded('videoSensing'))
         };

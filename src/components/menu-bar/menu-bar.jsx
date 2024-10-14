@@ -28,6 +28,7 @@ import TurboMode from '../../containers/turbo-mode.jsx';
 import MenuBarHOC from '../../containers/menu-bar-hoc.jsx';
 import SettingsMenu from './settings-menu.jsx';
 
+import ChlorEasterEggs from '../../containers/ch-eastereggcodes.jsx';
 import Eruda from '../../containers/tw-eruda.jsx';
 import FramerateChanger from '../../containers/tw-framerate-changer.jsx';
 import ChangeUsername from '../../containers/tw-change-username.jsx';
@@ -473,6 +474,26 @@ class MenuBar extends React.Component {
         );
         // Show the About button only if we have a handler for it (like in the desktop app)
         const aboutButton = this.buildAboutMenu(this.props.onClickAbout);
+        var clicks = 0;
+
+        const superSecretArray = [
+            "sitstatic.ogg",
+            "comeover.mp3",
+            "welcomeback.mp3"
+        ];
+
+        function supersecretfunction() {
+            clicks += 1
+            const supersecretaudio = new Audio("https://file.garden/ZkvWRc_E_BBSfryh/wp-uploads/"+superSecretArray[Math.floor(Math.random()*superSecretArray.length)]);
+            supersecretaudio.play();
+            if (clicks > 78) {
+                clicks = 0
+                window.open("https://www.youtube.com/watch?v=xvFZjo5PgG0")
+            }
+            supersecretaudio.onended = function(){
+                supersecretaudio.remove();
+            };
+        };
         return (
             <Box
                 className={classNames(
@@ -663,9 +684,9 @@ class MenuBar extends React.Component {
                                                                 />
                                                             ) : (
                                                                 <FormattedMessage
-                                                                    defaultMessage="Save to your computer"
-                                                                    description="Menu bar item for downloading a project to your computer" // eslint-disable-line max-len
-                                                                    id="gui.menuBar.downloadToComputer"
+                                                                    defaultMessage="Save to your device"
+                                                                    description="Menu bar item for downloading a project to your device" // eslint-disable-line max-len
+                                                                    id="gui.menuBar.downloadToComputer2"
                                                                 />
                                                             )}
                                                         </MenuItem>
@@ -794,6 +815,15 @@ class MenuBar extends React.Component {
                                             />
                                         </MenuItem>
                                     )}</ChangeUsername>
+                                    <ChlorEasterEggs>{easterEggsMenu => (
+                                        <MenuItem onClick={easterEggsMenu}>
+                                            <FormattedMessage
+                                                defaultMessage="Activate Eastereggs😱"
+                                                description="Menu bar item for activating eastereggs"
+                                                id="tw.menuBar.changeEastereggs"
+                                            />
+                                        </MenuItem>
+                                    )}</ChlorEasterEggs>
                                     <CloudVariablesToggler>{(toggleCloudVariables, {enabled, canUseCloudVariables}) => (
                                         <MenuItem
                                             className={classNames({[styles.disabled]: !canUseCloudVariables})}
@@ -1005,20 +1035,20 @@ class MenuBar extends React.Component {
                             />
                         ) : []))}
                     </div>
-                    {/* tw: add a feedback button */}
                     <div className={styles.menuBarItem}>
                         <a
-                            className={styles.feedbackLink}
-                            href="https://github.com/TurboWarp/mirror"
+                            className={styles.supersecretLink}
+                            alt="hmmmm"
+                            onClick={supersecretfunction}
                             rel="noopener noreferrer"
                             target="_blank"
                         >
                             {/* todo: icon */}
-                            <Button className={styles.feedbackButton}>
+                            <Button className={styles.supersecretButton}>
                                 <FormattedMessage
-                                    defaultMessage="{APP_NAME} Source"
-                                    description="Button to give sourcecode in the menu bar"
-                                    id="tw.feedbackButton"
+                                    defaultMessage="Super Secret Settings 🤫"
+                                    description="I wonder what this is?"
+                                    id="tw.scratchBack"
                                     values={{
                                         APP_NAME
                                     }}

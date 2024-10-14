@@ -259,5 +259,7 @@
     "swap-local-global/edit-variable-option": "Değişkeni yeniden adlandır veya düzenle",
     "swap-local-global/to-global": "\"Tüm kuklalar için\" ayarına dönüştür",
     "swap-local-global/to-local": "\"Yalnızca bu kukla için” ayarına dönüştür",
+    "emoji-picker/show-less": "Daha az göster",
+    "emoji-picker/show-more": "Daha fazla göster",
     "hide-stage/hide-stage": "Sahneyi gizle"
 }

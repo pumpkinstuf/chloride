@@ -40,21 +40,43 @@ const translateGalleryItem = (extension, locale) => ({
 });
 
 let cachedGallery = null;
+const libraryRoutes = [
+    "https://extensions.turbowarp.org", // Preferred Route
+    "https://twextraapis.vercel.app/ext"
+];
 
 const fetchLibrary = async () => {
-    const res = await fetch('https://twextraapis.vercel.app/ext/generated-metadata/extensions-v0.json');
-    if (!res.ok) {
-        throw new Error(`HTTP status ${res.status}`);
+    let routeuri = null;
+    
+    var dynres = null;
+    try {
+        dynres = await fetch(libraryRoutes[0]+'/generated-metadata/extensions-v0.json');
+        if (!dynres.ok) {
+            throw new Error(`Failed to fetch from final extension endpoint. HTTP status ${dynres.status}`);
+        } else {
+            routeuri = libraryRoutes[0]
+            console.log("Got extensions from default route")
+        }
+    } catch (error) {
+        console.warn("Failed to fetch extensions from tw most likely blocked")
+        dynres = await fetch(libraryRoutes[1]+'/generated-metadata/extensions-v0.json');
+        if (!dynres.ok) {
+            throw new Error(`Failed to fetch from final extension endpoint. HTTP status ${dynres.status}`);
+        } else {
+            console.log("Got extensions from route")
+            routeuri = libraryRoutes[1]
+        }
     }
-    const data = await res.json();
+    
+    const data = await dynres.json();
     return data.extensions.map(extension => ({
         name: extension.name,
         nameTranslations: extension.nameTranslations || {},
         description: extension.description,
         descriptionTranslations: extension.descriptionTranslations || {},
         extensionId: extension.id,
-        extensionURL: `https://twextraapis.vercel.app/ext/${extension.slug}.js`,
-        iconURL: `https://twextraapis.vercel.app/ext/${extension.image || 'images/unknown.svg'}`,
+        extensionURL: `${routeuri}/${extension.slug}.js`,
+        iconURL: `${routeuri}/${extension.image || 'images/unknown.svg'}`,
         tags: ['tw'],
         credits: [
             ...(extension.by || []),
@@ -74,9 +96,9 @@ const fetchLibrary = async () => {
             }
             return credit.name;
         }),
-        docsURI: extension.docs ? `https://twextraapis.vercel.app/ext/${extension.slug}` : null,
+        docsURI: extension.docs ? `${routeuri}/ext/${extension.slug}` : null,
         samples: extension.samples ? extension.samples.map(sample => ({
-            href: `${process.env.ROOT}editor?project_url=https://twextraapis.vercel.app/ext/samples/${encodeURIComponent(sample)}.sb3`,
+            href: `${process.env.ROOT}editor?project_url=${routeuri}/ext/samples/${encodeURIComponent(sample)}.sb3`,
             text: sample
         })) : null,
         incompatibleWithScratch: true,
